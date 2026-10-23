@@ -162,8 +162,19 @@ body { background: var(--sc-canvas); }
   background: var(--sc-surface); border-radius: 28px; padding: var(--sc-4) var(--sc-4) var(--sc-5);
   box-shadow: 4px 5px 0 var(--forest); border: 2px solid var(--forest);
 }
-.drink:nth-child(odd) { rotate: -1deg; } .drink:nth-child(even) { rotate: 1deg; }
-.drink.is-current { box-shadow: 6px 7px 0 var(--sc-accent); }
+/* centre-card pop: mado.js writes --focus (0 at the edges, 1 dead centre) every frame.
+   The centred card grows, straightens and lifts; the rest shrink, tilt and soften. */
+.drink {
+  --focus: 0; --tilt: -2.5deg;
+  position: relative;
+  transform: scale(calc(0.86 + var(--focus) * 0.26)); transform-origin: 50% 55%;
+  rotate: calc((1 - var(--focus)) * var(--tilt));
+  filter: saturate(calc(0.7 + var(--focus) * 0.3)) brightness(calc(0.93 + var(--focus) * 0.07));
+  box-shadow: calc(3px + var(--focus) * 5px) calc(4px + var(--focus) * 7px) 0 var(--forest);
+  will-change: transform;
+}
+.drink:nth-child(even) { --tilt: 2.5deg; }
+.drink.is-current { box-shadow: calc(3px + var(--focus) * 5px) calc(4px + var(--focus) * 7px) 0 var(--sc-accent); }
 .drink__win { position: relative; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--tint); }
 .drink__win img { position: absolute; left: 0; top: -4%; width: 100%; height: 125%; max-width: none; object-fit: cover; object-position: 50% 45%; mix-blend-mode: multiply; }
 .drink__fx { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
@@ -270,5 +281,6 @@ body { background: var(--sc-canvas); }
 /* ------------------------------------------------------- reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .fx, .stickers { display: none; }
+  .drink { transform: none; rotate: 0deg; filter: none; }
   .eq i { animation: none; }
 }

@@ -95,13 +95,20 @@
       }
     });
   }
+  // also drives the centre-card pop: --focus is 1 at the screen centre, easing to 0
+  // about a third of a screen away (scale, tilt and shadow read it in mado.css)
   function trackCurrent() {
     if (!cards.length) return;
-    var mid = innerWidth / 2, best = 0, bestD = Infinity;
+    var mid = innerWidth / 2, range = Math.max(260, innerWidth * 0.32), best = 0, bestD = Infinity;
     for (var i = 0; i < cards.length; i++) {
       var r = cards[i].getBoundingClientRect();
       var d = Math.abs(r.left + r.width / 2 - mid);
       if (d < bestD) { bestD = d; best = i; }
+      if (!reduce) {
+        var a = Math.min(1, d / range), f = 1 - a * a * (3 - 2 * a);
+        cards[i].style.setProperty('--focus', f.toFixed(3));
+        cards[i].style.zIndex = 1 + Math.round(f * 10);
+      }
     }
     if (best !== current) {
       if (current >= 0) cards[current].classList.remove('is-current');
