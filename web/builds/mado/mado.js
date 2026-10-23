@@ -7,9 +7,9 @@
   /* ---- Contact details (from @madomatcha.brew). Empty fields stay hidden. -- */
   var CONTACT = {
     address:   '414 Elizabeth St, Surry Hills NSW 2010',
-    mapsUrl:   '',   // optional Google Maps share link; otherwise a search for the address
+    mapsUrl:   'https://www.google.com/maps?cid=659832972389321181',  // the Google Maps listing
     hours:     'Open every day, 7am to 5pm',
-    phone:     '',   // e.g. '+61 2 0000 0000'
+    phone:     '0424 308 859',
     instagram: 'madomatcha.brew',
     tiktok:    'madomatcha.brew',
     coconutCloudPrice: ''  // e.g. '9.00'
@@ -203,7 +203,8 @@
   }
   fill('address', CONTACT.address);
   fill('hours', CONTACT.hours);
-  fill('phone', CONTACT.phone, 'tel:' + CONTACT.phone.replace(/[^+\d]/g, ''));
+  // dial in international form so the link works from any phone: 0424... becomes +61424...
+  fill('phone', CONTACT.phone && 'Call ' + CONTACT.phone, 'tel:' + CONTACT.phone.replace(/[^+\d]/g, '').replace(/^0/, '+61'));
   fill('instagram', CONTACT.instagram && 'Instagram @' + CONTACT.instagram, 'https://www.instagram.com/' + encodeURIComponent(CONTACT.instagram) + '/');
   fill('tiktok', CONTACT.tiktok && 'TikTok @' + CONTACT.tiktok, 'https://www.tiktok.com/@' + encodeURIComponent(CONTACT.tiktok));
   var maps = field('maps');

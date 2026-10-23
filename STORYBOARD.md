@@ -71,5 +71,5 @@ Taken from the store's menu board. Prices are in AUD (confirmed). Edit the print
 - [x] Address, hours, Instagram, TikTok (from Instagram bio)
 - [x] Address confirmed: 414 Elizabeth St, Surry Hills NSW 2010
 - [x] Prices confirmed as AUD
-- [ ] Phone number (hidden until provided)
+- [x] Phone number: 0424 308 859 (from the Google Maps listing)
 - [ ] Price of the Iced Coconut Matcha Cloud

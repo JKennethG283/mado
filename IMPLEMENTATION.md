@@ -61,7 +61,8 @@ All contact data lives in `CONTACT` at the top of `mado.js`:
 - **Currency:** AUD (confirmed)
 - **Hours:** Open every day, 7am to 5pm
 - **Instagram / TikTok:** @madomatcha.brew
-- **Phone:** empty, so it stays hidden
+- **Phone:** 0424 308 859 (from the Google Maps listing; the link dials +61424308859)
+- **Find us button:** opens the Google Maps listing directly
 - **Coconut Matcha Cloud price:** empty, so the card shows "Ask in store"
 
 ---
