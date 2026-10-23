@@ -58,7 +58,7 @@ Taken from the store's menu board. Prices are in AUD (confirmed). Edit the print
 | 08 | Iced Matcha Cheese Foam | $9.00 | milk / matcha / cheese foam | Rising foam bubbles |
 | 09 | Iced Double Matcha | $11.00 | milk / matcha / matcha cloud | Rising matcha dust |
 | 10 | Iced Creamy Coconut Matcha | $9.00 | coconut milk / coconut cream / matcha / desiccated coconut | Coconut flakes |
-| 11 | Iced Coconut Matcha Cloud | ? (hidden in the photo) | coconut water / matcha cloud / shredded coconut | Shredded coconut |
+| 11 | Iced Coconut Matcha Cloud | $9.50 | coconut water / matcha cloud / shredded coconut | Shredded coconut |
 | — | Milk & Alternatives | +$0.50 per cup | Oat, Almond, Soy, Coconut, Skim, Lactose-Free, Coconut Water | Pink "Remix it" card |
 
 ---
@@ -72,4 +72,4 @@ Taken from the store's menu board. Prices are in AUD (confirmed). Edit the print
 - [x] Address confirmed: 414 Elizabeth St, Surry Hills NSW 2010
 - [x] Prices confirmed as AUD
 - [x] Phone number: 0424 308 859 (from the Google Maps listing)
-- [ ] Price of the Iced Coconut Matcha Cloud
+- [x] Price of the Iced Coconut Matcha Cloud: $9.50

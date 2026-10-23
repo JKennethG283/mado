@@ -63,7 +63,7 @@ All contact data lives in `CONTACT` at the top of `mado.js`:
 - **Instagram / TikTok:** @madomatcha.brew
 - **Phone:** 0424 308 859 (from the Google Maps listing; the link dials +61424308859)
 - **Find us button:** opens the Google Maps listing directly
-- **Coconut Matcha Cloud price:** empty, so the card shows "Ask in store"
+- **Coconut Matcha Cloud price:** $9.50 (in `index.html`)
 
 ---
 

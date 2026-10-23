@@ -11,8 +11,7 @@
     hours:     'Open every day, 7am to 5pm',
     phone:     '0424 308 859',
     instagram: 'madomatcha.brew',
-    tiktok:    'madomatcha.brew',
-    coconutCloudPrice: ''  // e.g. '9.00'
+    tiktok:    'madomatcha.brew'
   };
 
   document.documentElement.classList.add('js');
@@ -217,8 +216,4 @@
   var maps = field('maps');
   var mapHref = CONTACT.mapsUrl || (CONTACT.address ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Mado Matcha & Brew, ' + CONTACT.address) : '');
   if (maps) { maps.hidden = !mapHref; if (mapHref) maps.href = mapHref; }
-  if (CONTACT.coconutCloudPrice) {
-    var cp = document.querySelector('[data-price="coconut-cloud"]');
-    if (cp) cp.textContent = 'Iced $' + CONTACT.coconutCloudPrice;
-  }
 })();
