@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mado Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Inter:ital,wght@0,400;0,500;0,600;1,500&family=Zen+Maru+Gothic:wght@500;700&display=block" rel="stylesheet">
+<style>
+  /* A4 portrait at 150dpi; render at 2x for print (2480x3508) */
+  :root{
+    --forest:#1E3123; --cream:#F4EEE1; --paper:#FAF6EC;
+    --matcha:#7FA650; --leaf:#C9D85A; --pink:#F2A7C3; --ink:#1E3123; --muted:#5E6B5F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1240px;height:1754px;background:var(--paper);color:var(--ink);font-family:Inter,sans-serif}
+  .page{position:relative;width:1240px;height:1754px;overflow:hidden;background:var(--paper)}
+  .paper-grain{position:absolute;inset:0;opacity:.35;pointer-events:none;
+    background-image:radial-gradient(rgba(30,49,35,.05) 1px,transparent 1.2px);background-size:7px 7px}
+
+  header{position:relative;height:236px;background:var(--forest);color:var(--cream);
+    display:flex;align-items:center;justify-content:space-between;padding:0 84px 18px}
+  header .logo{height:132px}
+  header .title{text-align:right}
+  header .title .jp{font-family:'Zen Maru Gothic';font-weight:700;font-size:22px;letter-spacing:.5em;color:var(--leaf);margin-bottom:8px}
+  header .title h1{font-family:Fredoka;font-weight:600;font-size:64px;line-height:.95;letter-spacing:.01em}
+  header .title p{font-size:16px;opacity:.8;margin-top:12px;letter-spacing:.02em}
+  .shoji{position:absolute;left:0;right:0;bottom:-1px;height:20px;
+    background:repeating-linear-gradient(90deg,transparent 0 58px,var(--forest) 58px 62px),var(--cream);
+    border-top:4px solid var(--forest)}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 30px;padding:30px 72px 0}
+  .card{position:relative;text-align:center}
+  .window{position:relative;width:190px;height:190px;margin:8px auto 10px;border-radius:50%;
+    display:flex;align-items:flex-end;justify-content:center;overflow:visible}
+  .window::after{content:"";position:absolute;inset:0;border-radius:50%;
+    box-shadow:inset 0 0 0 4.5px var(--forest),inset 0 0 0 8px rgba(244,238,225,.7)}
+  .window svg{position:relative;z-index:1;height:176px;width:auto;margin-bottom:-2px}
+  .num{position:absolute;top:4px;left:50%;margin-left:-160px;font-family:Fredoka;font-weight:600;
+    font-size:14px;color:var(--muted);letter-spacing:.08em}
+  .card h2{font-family:Fredoka;font-weight:600;font-size:22px;line-height:1.1;min-height:48px;
+    display:flex;align-items:center;justify-content:center;text-wrap:balance;max-width:330px;margin:0 auto}
+  .card .ing{font-size:13px;line-height:1.4;color:var(--muted);max-width:310px;margin:5px auto 8px;min-height:36px;text-wrap:balance}
+  .price{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:baseline;gap:6px;background:var(--leaf);color:var(--forest);
+    padding:4px 12px;border-radius:999px;font-weight:600;font-size:15px}
+  .pill.hot{background:transparent;box-shadow:inset 0 0 0 1.5px var(--forest)}
+  .pill small{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.75}
+  .pill i{font-style:normal;font-size:11px;opacity:.7;font-weight:500}
+
+  .milk{display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:var(--cream);border-radius:28px;margin:6px 6px 0;padding:22px 20px;box-shadow:inset 0 0 0 2px rgba(30,49,35,.12)}
+  .milk h2{min-height:0;margin-bottom:4px}
+  .milk .label{background:var(--pink);color:var(--forest);font-family:Fredoka;font-weight:600;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:6px;margin-bottom:12px}
+  .milk ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:7px 7px;max-width:320px;margin:10px 0 14px}
+  .milk li{font-size:13px;font-weight:500;padding:4px 11px;border-radius:999px;background:var(--paper);box-shadow:inset 0 0 0 1.2px rgba(30,49,35,.25)}
+
+  footer{position:absolute;left:0;right:0;bottom:0;height:64px;background:var(--forest);color:var(--cream);
+    display:flex;align-items:center;justify-content:space-between;padding:0 84px;font-size:15px}
+  footer .note{font-style:italic;font-weight:500;opacity:.8}
+  footer .jp{font-family:'Zen Maru Gothic';letter-spacing:.4em;color:var(--leaf);font-size:14px}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="paper-grain"></div>
+  <header>
+    <img class="logo" src="../logo/mado-logo-cream.svg" alt="Mado Matcha &amp; Brew">
+    <div class="title">
+      <div class="jp">抹茶スペシャル</div>
+      <h1>Matcha Specialty</h1>
+      <p>Stone-ground matcha, imported from Japan</p>
+    </div>
+    <div class="shoji"></div>
+  </header>
+
+  <section class="grid" id="grid"></section>
+
+  <footer>
+    <div class="note">Less sweet? Just ask. Every cup whisked to order.</div>
+    <div class="jp">窓 · まど</div>
+  </footer>
+</div>
+
+<script>
+/* ---- Edit the menu here. Layers go bottom → top as [colour, share of cup]. ---- */
+const CUR = "$";
+const MILK = "#F3F0E6", MATCHA = "#5E8C3A", DEEP = "#3E6B2A";
+const MENU = [
+  { name:"Matcha Latte", ing:"Milk / Matcha", iced:"7.50", hot:["5.50","6.00"],
+    theme:"#DCE8C4", layers:[[MILK,.48],[MATCHA,.46]], ice:true },
+  { name:"Iced Double Matcha Banana Pudding", ing:"Milk / Matcha / Matcha Banana Pudding / Cookie Crumble", iced:"12.00",
+    theme:"#F6E7B0", layers:[[MILK,.46],[MATCHA,.40]], top:"pudding" },
+  { name:"Iced Salted Caramel Matcha Einspänner", ing:"Milk / Matcha / Cookie / Einspänner Cream / Salted Caramel Sauce", iced:"10.00",
+    theme:"#EFD9BC", layers:[[MILK,.34],[MATCHA,.34],["#FBF6EA",.24]], top:"einspanner" },
+  { name:"Iced Mango Matcha", ing:"Mango Purée / Milk / Matcha", iced:"9.00",
+    theme:"#FBDDA8", layers:[["#E8962F",.14],[MILK,.36],[MATCHA,.44]], ice:true },
+  { name:"Iced Strawberry Matcha", ing:"Strawberry Purée / Milk / Matcha", iced:"9.00",
+    theme:"#F8D6D3", layers:[["#B8232F",.13],[MILK,.37],[MATCHA,.44]], ice:true },
+  { name:"Earl Grey Matcha", ing:"Earl Grey Syrup / Milk / Matcha", iced:"8.00", hot:["6.00","6.50"],
+    theme:"#E2DCEB", layers:[["#7C2F35",.06],[MILK,.44],["#6E9C46",.44]], ice:true, blend:true },
+  { name:"Dirty Matcha Latte", ing:"Espresso / Milk / Matcha", iced:"9.00", hot:["6.50","7.00"],
+    theme:"#E6D6C6", layers:[["#7A4E33",.42],[DEEP,.52]], ice:true, blend:true },
+  { name:"Iced Matcha Cheese Foam", ing:"Milk / Matcha / Cheese Foam", iced:"9.00",
+    theme:"#F4EDC6", layers:[[MILK,.44],[MATCHA,.30],["#EFE6B4",.20]], top:"cheese" },
+  { name:"Iced Double Matcha", ing:"Milk / Matcha / Matcha Cloud", iced:"11.00",
+    theme:"#CFE0B8", layers:[[MILK,.30],[MATCHA,.28],["#24461C",.36]], top:"cloud" },
+  { name:"Iced Creamy Coconut Matcha", ing:"Coconut Milk / Coconut Cream / Matcha / Desiccated Coconut", iced:"9.00",
+    theme:"#E4EEE6", layers:[["#F6F5EE",.50],[MATCHA,.36]], ice:true, top:"coconut" },
+  { name:"Iced Coconut Matcha Cloud", ing:"Coconut Water / Matcha Cloud / Shredded Coconut", iced:null,
+    theme:"#D3EDEC", layers:[["#DCE6E2",.56],["#4F8A35",.34]], top:"shred" },
+];
+const MILK_ALTS = { price:"0.50", items:["Oat Milk","Almond Milk","Soy Milk","Coconut Milk","Skim Milk","Lactose-Free Milk","Coconut Water"] };
+
+/* ---- illustrated clear cup with the Mado emblem printed on the front ---- */
+function cup(d, i){
+  const W=128, Hc=168, yTop=10, x0=31, inset=14, yBot=yTop+Hc, fill=Hc-10;
+  const xl=y=>x0+inset*(y-yTop)/Hc, xr=y=>x0+W-inset*(y-yTop)/Hc;
+  const id="c"+i, total=d.layers.reduce((s,l)=>s+l[1],0);
+  let acc=0; const stops=[];
+  d.layers.forEach(([col,frac],k)=>{
+    const a=acc/total, b=(acc+frac)/total, soft=d.blend?0.16:0.03; acc+=frac;
+    stops.push([a+(k?soft:0),col],[b-(k<d.layers.length-1?soft:0),col]);
+  });
+  const liquidH=fill*Math.min(1,total), yL=yBot-4-liquidH, cxm=(xl(yL)+xr(yL))/2, w=xr(yL)-xl(yL);
+  const grad=stops.map(([o,c])=>`<stop offset="${(1-o).toFixed(3)}" stop-color="${c}"/>`).reverse().join("");
+  const liquid=`M${xl(yL)+3},${yL} L${xr(yL)-3},${yL} L${xr(yBot-4)-3},${yBot-4} Q95,${yBot+1} ${xl(yBot-4)+3},${yBot-4} Z`;
+  let ex="", top="";
+  if(d.ice) [[0.3,0.10,-10],[0.62,0.06,14]].forEach(([fx,fy,r])=>{
+    const cx=x0+W*fx, cy=yL+liquidH*fy+14;
+    ex+=`<rect x="${cx-14}" y="${cy-14}" width="28" height="28" rx="6" transform="rotate(${r} ${cx} ${cy})" fill="rgba(255,255,255,.22)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>`;});
+  const rnd=k=>((Math.sin(k*91.7+i*13.1)+1)/2);
+  if(d.top==="pudding"){
+    top+=`<path d="M${xl(yL)-4},${yL+4} C${xl(yL)-2},${yL-40} ${xr(yL)+2},${yL-40} ${xr(yL)+4},${yL+4} Z" fill="#7BA548"/>`;
+    top+=`<path d="M${xl(yL)+4},${yL-6} C${cxm-30},${yL-36} ${cxm+4},${yL-40} ${cxm+6},${yL-24} C${cxm-6},${yL-14} ${xl(yL)+18},${yL-2} ${xl(yL)+4},${yL-6}Z" fill="#8A5A34"/>`;
+    for(let k=0;k<26;k++) top+=`<circle cx="${xl(yL)+8+rnd(k)*(w-16)}" cy="${yL-6-rnd(k+40)*26}" r="${1.6+rnd(k+80)*2.2}" fill="${k%3?'#6E4325':'#A97A4C'}"/>`;
+  }
+  if(d.top==="einspanner"){
+    top+=`<path d="M${xl(yL)+4},${yL+2} Q${cxm},${yL-22} ${xr(yL)-4},${yL+2} Z" fill="#FBF6EA"/>`;
+    top+=`<path d="M${xl(yL)+12},${yL+4} L${cxm-24},${yL-8} L${cxm-10},${yL+4} L${cxm+6},${yL-10} L${cxm+22},${yL+3} L${xr(yL)-14},${yL-6}" stroke="#C47A2C" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+    top+=`<g transform="translate(${cxm-12} ${yL-26}) rotate(-18)"><ellipse rx="17" ry="11" fill="#B4712F"/><ellipse rx="12" ry="7" fill="none" stroke="#9A5E25" stroke-width="1.5"/></g>`;
+    top+=`<g transform="translate(${cxm+18} ${yL-30}) rotate(28)"><rect x="-5" y="-22" width="10" height="44" rx="5" fill="#9B5B2A"/><path d="M-5,-12 H5 M-5,-2 H5 M-5,8 H5" stroke="#7E4620" stroke-width="1.4"/></g>`;
+    for(let k=0;k<8;k++) top+=`<rect x="${xl(yL+30)+10+rnd(k)*(w-30)}" y="${yL+8+rnd(k+9)*28}" width="7" height="6" rx="1.5" fill="#7FAF52" opacity=".9"/>`;
+  }
+  if(d.top==="cheese") for(let k=0;k<5;k++) top+=`<circle cx="${xl(yL)+18+rnd(k)*(w-36)}" cy="${yL+8+rnd(k+5)*14}" r="1.8" fill="#C9B97A"/>`;
+  if(d.top==="cloud") for(let k=0;k<16;k++) top+=`<circle cx="${xl(yL)+12+rnd(k)*(w-24)}" cy="${yL+5+rnd(k+20)*22}" r="${1.2+rnd(k+40)*2.4}" fill="rgba(140,180,100,.45)"/>`;
+  if(d.top==="coconut"){
+    top+=`<path d="M${cxm-26},${yL+8} C${cxm-30},${yL-22} ${cxm+18},${yL-26} ${cxm+22},${yL+6} Z" fill="#FFFFFF" stroke="#E4E0D4" stroke-width="1.5"/>`;
+    for(let k=0;k<22;k++) top+=`<rect x="${xl(yL)+8+rnd(k)*(w-16)}" y="${yL-6-rnd(k+30)*16}" width="4" height="2.4" rx="1" fill="#FFFFFF" stroke="#DCD6C6" stroke-width=".6" transform="rotate(${rnd(k+60)*180} ${xl(yL)+8+rnd(k)*(w-16)} ${yL-6})"/>`;
+  }
+  if(d.top==="shred"){
+    top+=`<path d="M${xl(yL)+3},${yL} Q${cxm},${yL-14} ${xr(yL)-3},${yL}Z" fill="#5B963E"/>`;
+    for(let k=0;k<30;k++){const sx=xl(yL)+10+rnd(k)*(w-20), sy=yL-4-rnd(k+33)*10;
+      top+=`<path d="M${sx},${sy} q4,-3 8,${rnd(k+70)*4-2}" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round"/>`;}
+  }
+  return `<svg viewBox="0 -44 190 ${yBot+60}" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1">${grad}</linearGradient>
+      <linearGradient id="${id}s" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".16"/><stop offset=".35" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".12"/></linearGradient></defs>
+    <ellipse cx="95" cy="${yBot+6}" rx="58" ry="7" fill="rgba(30,49,35,.18)"/>
+    <path d="${liquid}" fill="url(#${id})"/><path d="${liquid}" fill="url(#${id}s)"/>
+    ${ex}
+    <image href="../logo/mado-emblem-green.svg" x="${95-21}" y="${yTop+Hc*0.5}" width="42" height="42" opacity=".9"/>
+    <path d="M${x0},${yTop} L${x0+W},${yTop} L${xr(yBot)},${yBot} Q95,${yBot+4} ${xl(yBot)},${yBot} Z" fill="rgba(255,255,255,.10)" stroke="rgba(30,49,35,.55)" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M${x0+12},${yTop+14} L${xl(yBot)+12},${yBot-14}" stroke="rgba(255,255,255,.7)" stroke-width="5" stroke-linecap="round"/>
+    <rect x="${x0-5}" y="${yTop-6}" width="${W+10}" height="8" rx="4" fill="rgba(255,255,255,.55)" stroke="rgba(30,49,35,.55)" stroke-width="2"/>
+    ${top}
+  </svg>`;
+}
+
+const pill=(label,val,cls="")=>`<span class="pill ${cls}"><small>${label}</small>${val}</span>`;
+const prices=d=>{
+  let h=pill("Iced", d.iced?CUR+d.iced:"—");
+  if(d.hot) h+=pill("Hot",`${CUR}${d.hot[0]}<i>S</i> ${CUR}${d.hot[1]}<i>L</i>`,"hot");
+  return h;
+};
+document.getElementById("grid").innerHTML=MENU.map((d,i)=>`
+  <article class="card">
+    <div class="num">${String(i+1).padStart(2,"0")}</div>
+    <div class="window" style="background:radial-gradient(circle at 50% 38%, #fff 0%, ${d.theme} 62%)">${cup(d,i)}</div>
+    <h2>${d.name}</h2>
+    <p class="ing">${d.ing}</p>
+    <div class="price">${prices(d)}</div>
+  </article>`).join("")+`
+  <article class="card milk">
+    <div class="label">Milk &amp; Alternatives</div>
+    <h2>Make it yours</h2>
+    <ul>${MILK_ALTS.items.map(m=>`<li>${m}</li>`).join("")}</ul>
+    <div class="price">${pill("Per cup","+"+CUR+MILK_ALTS.price)}</div>
+  </article>`;
+</script>
+</body>
+</html>
