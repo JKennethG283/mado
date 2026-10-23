@@ -1,0 +1,7 @@
+node_modules/
+lab/
+src/*.png
+src/*.mp4
+.vercel
+src/retired/
+src/*.cjs

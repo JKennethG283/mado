@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mado-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:/Users/User/.claude/skills/scroll-craft/scripts/serve.mjs", "--root", "web/builds/mado", "--port", "4500"],
+      "port": 4500
+    }
+  ]
+}

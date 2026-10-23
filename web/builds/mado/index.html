@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mado Matcha &amp; Brew · Surry Hills</title>
+<meta name="description" content="Ceremonial matcha from Japan, whisked to order at 414 Elizabeth St, Surry Hills. Open every day, 7am to 5pm.">
+<meta name="theme-color" content="#F6F0E2">
+<meta property="og:title" content="Mado Matcha &amp; Brew">
+<meta property="og:description" content="Same ur fav matcha, new chapter. 414 Elizabeth St, Surry Hills.">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="icon" href="assets/mado-emblem-green.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/cup-assembled.webp" fetchpriority="high">
+<link rel="stylesheet" href="scrollcraft.css">
+<link rel="stylesheet" href="mado.css">
+</head>
+<body>
+
+<!-- sticker sheet: drawn once, reused by <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="st-flower" viewBox="0 0 100 100">
+      <g fill="var(--petal, #F4A6C1)">
+        <ellipse cx="50" cy="20" rx="13" ry="20"/><ellipse cx="50" cy="80" rx="13" ry="20"/>
+        <ellipse cx="20" cy="50" rx="20" ry="13"/><ellipse cx="80" cy="50" rx="20" ry="13"/>
+        <ellipse cx="29" cy="29" rx="13" ry="19" transform="rotate(-45 29 29)"/><ellipse cx="71" cy="71" rx="13" ry="19" transform="rotate(-45 71 71)"/>
+        <ellipse cx="71" cy="29" rx="13" ry="19" transform="rotate(45 71 29)"/><ellipse cx="29" cy="71" rx="13" ry="19" transform="rotate(45 29 71)"/>
+      </g>
+      <circle cx="50" cy="50" r="15" fill="var(--heart, #F2C14E)"/>
+      <circle cx="50" cy="50" r="15" fill="none" stroke="#1E3123" stroke-width="2.5" stroke-dasharray="2 5" opacity=".5"/>
+    </symbol>
+    <symbol id="st-sparkle" viewBox="0 0 100 100">
+      <path d="M50 2 C55 38 62 45 98 50 C62 55 55 62 50 98 C45 62 38 55 2 50 C38 45 45 38 50 2Z" fill="var(--spark, #9BC45A)"/>
+    </symbol>
+    <symbol id="st-heart" viewBox="0 0 100 100">
+      <path d="M50 88 C20 66 4 50 4 31 C4 16 16 6 29 6 C39 6 46 12 50 20 C54 12 61 6 71 6 C84 6 96 16 96 31 C96 50 80 66 50 88Z" fill="var(--heart, #F4A6C1)" stroke="#1E3123" stroke-width="4"/>
+    </symbol>
+    <symbol id="st-note" viewBox="0 0 100 100">
+      <path d="M38 76 V18 L82 8 V64" fill="none" stroke="#1E3123" stroke-width="7" stroke-linejoin="round"/>
+      <ellipse cx="28" cy="78" rx="14" ry="11" fill="#1E3123"/><ellipse cx="72" cy="66" rx="14" ry="11" fill="#1E3123"/>
+    </symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="M6 5v14M19 5 9 12l10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M18 5v14M5 5l10 7-10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#menu">Skip to the menu</a>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<header class="bar">
+  <a class="bar__mark" href="#top" aria-label="Mado, back to top">
+    <svg class="bar__ring" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="22" class="bar__track"/>
+      <circle cx="24" cy="24" r="22" class="bar__fill" pathLength="1"/>
+    </svg>
+    <span class="bar__kanji" lang="ja">窓</span>
+  </a>
+  <nav class="bar__nav" aria-label="Sections">
+    <a href="#inside">The cup</a>
+    <a href="#process">Matcha</a>
+    <a href="#menu">Menu</a>
+    <a class="bar__cta" href="#visit">Find us</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 1 · THE WINDOW. The logo ring is a real aperture; the cup waits inside. -->
+  <section class="hero" data-sc-act="pin" data-sc-span="2" data-mado="hero">
+    <div data-sc-stage class="hero__stage">
+      <div class="aperture hero__aperture" data-mado-aperture>
+        <img class="hero__cup" src="assets/cup-assembled.webp" width="2400" height="1357" alt="An iced matcha latte in a Mado cup with its music-player sticker label">
+      </div>
+      <img class="hero__ring" src="assets/ring-green.svg" alt="" aria-hidden="true">
+      <div class="stickers" aria-hidden="true">
+        <svg class="st" style="--x:-1.15;--y:-0.75;--fx:-1;--fy:-1;--r:-12deg;--s:6.5rem"><use href="#st-flower"/></svg>
+        <svg class="st" style="--x:1.08;--y:-0.95;--fx:1;--fy:-1.2;--r:14deg;--s:3.2rem;--spark:#F4A6C1"><use href="#st-sparkle"/></svg>
+        <svg class="st" style="--x:1.2;--y:0.55;--fx:1.3;--fy:0.8;--r:-8deg;--s:5.4rem;--petal:#F2C14E;--heart:#F28C28"><use href="#st-flower"/></svg>
+        <svg class="st" style="--x:-1.25;--y:0.7;--fx:-1.2;--fy:1;--r:10deg;--s:3.4rem"><use href="#st-heart"/></svg>
+        <svg class="st" style="--x:0.62;--y:-1.18;--fx:0.6;--fy:-1.4;--r:8deg;--s:3rem"><use href="#st-note"/></svg>
+        <svg class="st" style="--x:-0.55;--y:1.16;--fx:-0.5;--fy:1.4;--r:-6deg;--s:2.6rem"><use href="#st-sparkle"/></svg>
+      </div>
+      <div class="sc-copy sc-copy--lead hero__copy" data-sc-cue="0 0.45 0">
+        <img class="hero__word" src="assets/mado-wordmark-green.svg" width="732" height="340" alt="Mado Matcha &amp; Brew">
+        <h1 class="sc-display hero__title">Same ur fav matcha. <em>New chapter.</em></h1>
+        <p class="sc-body hero__sub">Ceremonial matcha from Japan, whisked to order at our new home on Elizabeth St, Surry Hills.</p>
+        <p class="hero__ctas"><a class="btn" href="#visit">Find us</a><a class="btn btn--ghost" href="#menu">See the menu</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · WHAT'S IN THE CUP. The peak: scroll pulls the drink apart. -->
+  <!-- clip-map travel: the entry slide happens hidden under the hero, so the clip
+       must wait on frame one until this act pins -->
+  <section id="inside" class="inside" data-sc-act="scrub" data-sc-span="3" data-sc-dwell="0.35" data-sc-clip-map="travel">
+    <div data-sc-stage>
+      <img class="sc-stage__poster" src="assets/cup-explode-poster.webp" width="1920" height="1080" alt="" loading="lazy">
+      <video data-sc-scrub data-sc-src="assets/cup-explode.mp4" data-sc-src-mobile="assets/cup-explode-m.mp4" muted playsinline preload="none"></video>
+      <div class="inside__title" data-sc-cue="0.02 0.44">
+        <p class="tag">The anatomy</p>
+        <h2 class="sc-display sc-display--lg" data-sc-kinetic="lines">What's in the cup?</h2>
+      </div>
+      <ul class="parts" aria-label="What's in a Mado iced matcha latte">
+        <li class="part part--ice"   data-sc-cue="0.5 1 0.2 0"><b>Ice</b> Lots of it. Iced is our default.</li>
+        <li class="part part--matcha" data-sc-cue="0.58 1 0.2 0"><b>Ceremonial matcha</b> Stone-ground in Japan, whisked by hand for every cup.</li>
+        <li class="part part--milk"  data-sc-cue="0.66 1 0.2 0"><b>Milk, your way</b> Full cream, or swap to oat, almond, soy, coconut, skim or lactose-free.</li>
+        <li class="part part--cup"   data-sc-cue="0.74 1 0.2 0"><b>The cup</b> Every one wears a now-playing label.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3 · LEAF TO POWDER. The window opens onto the slow part. -->
+  <section id="process" class="process" data-sc-act="pin" data-sc-span="2.6" data-mado="process">
+    <div data-sc-stage class="process__stage">
+      <div class="aperture process__aperture" data-mado-aperture>
+        <img class="process__img" data-sc-cue="0 0.26 0" data-sc-rise="0" src="assets/step-shade.webp" width="2400" height="1357" loading="lazy" alt="Tea bushes glowing green under black shade cloth">
+        <img class="process__img" data-sc-cue="0.2 0.46" data-sc-rise="0" src="assets/step-pick.webp" width="2400" height="1357" loading="lazy" alt="Hands picking the youngest tea leaves into a bamboo basket">
+        <img class="process__img" data-sc-cue="0.4 0.66" data-sc-rise="0" src="assets/step-steam.webp" width="2400" height="1357" loading="lazy" alt="Fresh tea leaves in clouds of steam on a bamboo tray">
+        <img class="process__img" data-sc-cue="0.6 0.84" data-sc-rise="0" src="assets/step-tencha.webp" width="2400" height="1357" loading="lazy" alt="Dried tencha flakes on washi paper">
+        <img class="process__img" data-sc-cue="0.78 1 0.25 0" data-sc-rise="0" src="assets/mill-poster.webp" width="1920" height="1080" loading="lazy" alt="A granite stone mill grinding green matcha powder">
+      </div>
+      <div class="sc-scrim sc-scrim--lead process__scrim" aria-hidden="true"></div>
+      <h2 class="process__head" data-sc-cue="0.04 0.3">Leaf to powder, <em>the slow way.</em></h2>
+      <div class="label-stack">
+        <div class="step" data-sc-cue="0.08 0.26"><p class="step__n">01 · Shade</p><p class="step__t">About three weeks under black cloth before harvest. Less sun, sweeter leaves.</p></div>
+        <div class="step" data-sc-cue="0.22 0.46"><p class="step__n">02 · Pick</p><p class="step__t">Only the first spring flush, only the youngest leaves.</p></div>
+        <div class="step" data-sc-cue="0.42 0.66"><p class="step__n">03 · Steam</p><p class="step__t">Steamed within hours, so the green stays green.</p></div>
+        <div class="step" data-sc-cue="0.62 0.84"><p class="step__n">04 · Dry</p><p class="step__t">Stems and veins out. What's left is called tencha.</p></div>
+        <div class="step" data-sc-cue="0.8 1 0.25 0"><p class="step__n">05 · Grind</p><p class="step__t">Granite stones, about forty grams an hour. Then it's ours to whisk.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · THE PLAYLIST. Each drink is a track; the player controls work. -->
+  <section id="menu" class="menu" data-sc-act="pan" data-sc-span="2.8">
+    <div data-sc-stage class="menu__stage">
+      <div class="menu__rail" data-sc-pan="0.04">
+        <div class="menu__lead">
+          <p class="tag">Now playing</p>
+          <h2 class="sc-display sc-display--lg">The playlist.</h2>
+          <p class="sc-body">Eleven tracks, all whisked to order. Iced unless it says hot. Prices in AUD.</p>
+          <svg class="menu__note" aria-hidden="true"><use href="#st-note"/></svg>
+        </div>
+
+        <article class="drink" data-fx="ice" style="--tint:#D6E6BE">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/01-matcha-latte.webp" width="720" height="900" loading="lazy" alt="Matcha latte: green matcha over white milk with ice"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 01</p>
+          <h3>Matcha Latte</h3><p class="drink__ing">Milk / Matcha</p>
+          <p class="drink__price"><span>Iced $7.50</span><span>Hot $5.50 S · $6.00 L</span></p>
+        </article>
+        <article class="drink" data-fx="banana" style="--tint:#F3E4A6">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/02-banana-pudding.webp" width="720" height="900" loading="lazy" alt="Double matcha topped with a dome of matcha banana pudding and cookie crumble"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 02</p>
+          <h3>Iced Double Matcha Banana Pudding</h3><p class="drink__ing">Milk / Matcha / Matcha Banana Pudding / Cookie Crumble</p>
+          <p class="drink__price"><span>Iced $12.00</span></p>
+        </article>
+        <article class="drink" data-fx="caramel" style="--tint:#EBD2AE">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/03-einspanner.webp" width="720" height="900" loading="lazy" alt="Matcha topped with whipped einspänner cream, caramel drizzle and a biscuit"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 03</p>
+          <h3>Iced Salted Caramel Matcha Einspänner</h3><p class="drink__ing">Milk / Matcha / Cookie / Einspänner Cream / Salted Caramel Sauce</p>
+          <p class="drink__price"><span>Iced $10.00</span></p>
+        </article>
+        <article class="drink" data-fx="mango" style="--tint:#F7D49A">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/04-mango.webp" width="720" height="900" loading="lazy" alt="Mango purée, milk and matcha in three layers"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 04</p>
+          <h3>Iced Mango Matcha</h3><p class="drink__ing">Mango Purée / Milk / Matcha</p>
+          <p class="drink__price"><span>Iced $9.00</span></p>
+        </article>
+        <article class="drink" data-fx="strawberry" style="--tint:#F4CFCB">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/05-strawberry.webp" width="720" height="900" loading="lazy" alt="Strawberry purée, milk and matcha in three layers"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 05</p>
+          <h3>Iced Strawberry Matcha</h3><p class="drink__ing">Strawberry Purée / Milk / Matcha</p>
+          <p class="drink__price"><span>Iced $9.00</span></p>
+        </article>
+        <article class="drink" data-fx="earlgrey" style="--tint:#DCD5E8">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/06-earl-grey.webp" width="720" height="900" loading="lazy" alt="Earl grey syrup under milk and matcha"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 06</p>
+          <h3>Earl Grey Matcha</h3><p class="drink__ing">Earl Grey Syrup / Milk / Matcha</p>
+          <p class="drink__price"><span>Iced $8.00</span><span>Hot $6.00 S · $6.50 L</span></p>
+        </article>
+        <article class="drink" data-fx="coffee" style="--tint:#E2CFBC">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/07-dirty.webp" width="720" height="900" loading="lazy" alt="Espresso and milk under a layer of matcha"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 07</p>
+          <h3>Dirty Matcha Latte</h3><p class="drink__ing">Espresso / Milk / Matcha</p>
+          <p class="drink__price"><span>Iced $9.00</span><span>Hot $6.50 S · $7.00 L</span></p>
+        </article>
+        <article class="drink" data-fx="foam" style="--tint:#F1E8BE">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/08-cheese-foam.webp" width="720" height="900" loading="lazy" alt="Matcha latte under a thick layer of cheese foam"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 08</p>
+          <h3>Iced Matcha Cheese Foam</h3><p class="drink__ing">Milk / Matcha / Cheese Foam</p>
+          <p class="drink__price"><span>Iced $9.00</span></p>
+        </article>
+        <article class="drink" data-fx="cloud" style="--tint:#C9DDB0">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/09-double-matcha.webp" width="720" height="900" loading="lazy" alt="Milk and matcha under a deep green matcha cloud foam"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 09</p>
+          <h3>Iced Double Matcha</h3><p class="drink__ing">Milk / Matcha / Matcha Cloud</p>
+          <p class="drink__price"><span>Iced $11.00</span></p>
+        </article>
+        <article class="drink" data-fx="coconut" style="--tint:#DDE9DF">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/10-creamy-coconut.webp" width="720" height="900" loading="lazy" alt="Coconut milk and matcha topped with coconut cream and desiccated coconut"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 10</p>
+          <h3>Iced Creamy Coconut Matcha</h3><p class="drink__ing">Coconut Milk / Coconut Cream / Matcha / Desiccated Coconut</p>
+          <p class="drink__price"><span>Iced $9.00</span></p>
+        </article>
+        <article class="drink" data-fx="shred" style="--tint:#CDE7E5">
+          <div class="drink__win"><div class="drink__fx" aria-hidden="true"></div><img src="assets/drinks/11-coconut-cloud.webp" width="720" height="900" loading="lazy" alt="Coconut water under a green matcha cloud with shredded coconut"></div>
+          <p class="drink__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>Track 11</p>
+          <h3>Iced Coconut Matcha Cloud</h3><p class="drink__ing">Coconut Water / Matcha Cloud / Shredded Coconut</p>
+          <p class="drink__price"><span data-price="coconut-cloud">Ask in store</span></p>
+        </article>
+
+        <aside class="menu__milk">
+          <p class="tag tag--pink">Remix it</p>
+          <h3>Milk &amp; alternatives</h3>
+          <p class="drink__price"><span>+$0.50 per cup</span></p>
+          <ul><li>Oat</li><li>Almond</li><li>Soy</li><li>Coconut</li><li>Skim</li><li>Lactose-free</li><li>Coconut water</li></ul>
+          <p class="sc-body">Less sweet? Just ask.</p>
+        </aside>
+      </div>
+      <div class="player" role="group" aria-label="Playlist controls">
+        <button class="player__btn" type="button" data-player="prev" aria-label="Previous drink"><svg><use href="#i-prev"/></svg></button>
+        <button class="player__btn player__btn--main" type="button" data-player="toggle" aria-label="Pause the animations" aria-pressed="false"><svg class="i-pause"><use href="#i-pause"/></svg><svg class="i-play"><use href="#i-play"/></svg></button>
+        <button class="player__btn" type="button" data-player="next" aria-label="Next drink"><svg><use href="#i-next"/></svg></button>
+        <p class="player__now" aria-live="polite"><span>Now playing</span> <b data-player-title>Matcha Latte</b></p>
+        <span class="player__bar" aria-hidden="true"><i></i></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · VISIT. The shop closes back into the logo ring. The page arrives. -->
+  <section id="visit" class="visit" data-sc-act="pin" data-sc-span="1.5" data-mado="visit">
+    <div data-sc-stage class="visit__stage">
+      <div class="aperture visit__aperture" data-mado-aperture>
+        <img src="assets/shop-interior.webp" width="2400" height="1357" loading="lazy" alt="Inside Mado: white tiles, a pale wood counter, baristas in green aprons and a vase of gerberas">
+      </div>
+      <img class="visit__kanji" src="assets/kanji-cream.svg" alt="" aria-hidden="true">
+      <img class="visit__ring" src="assets/ring-green.svg" alt="" aria-hidden="true">
+      <svg class="visit__st visit__st--a" aria-hidden="true"><use href="#st-flower"/></svg>
+      <svg class="visit__st visit__st--b" aria-hidden="true" style="--spark:#F4A6C1"><use href="#st-sparkle"/></svg>
+      <div class="visit__copy" data-sc-cue="0.3 1 0.3 0">
+        <p class="tag">New home</p>
+        <h2 class="sc-display sc-display--lg">Come hang.</h2>
+        <address class="visit__info" data-contact>
+          <p class="visit__addr" data-field="address"></p>
+          <p data-field="hours"></p>
+          <p class="visit__links">
+            <a data-field="phone" href="#"></a>
+            <a data-field="instagram" href="#" rel="noopener" target="_blank"></a>
+            <a data-field="tiktok" href="#" rel="noopener" target="_blank"></a>
+          </p>
+        </address>
+        <a class="btn" data-field="maps" href="#" target="_blank" rel="noopener">Find us</a>
+      </div>
+      <footer class="foot">
+        <img src="assets/mado-wordmark-green.svg" width="732" height="340" alt="Mado Matcha &amp; Brew">
+        <p>© 2026 Mado Matcha &amp; Brew · Surry Hills, Sydney</p>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<script src="scrollcraft.js"></script>
+<script src="mado.js"></script>
+</body>
+</html>
